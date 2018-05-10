@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scroll View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ScrollViewController" id="BYZ-38-t0r" customClass="ScrollViewController" customModule="Swag" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vno-Fe-Pay">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Cm6-RJ-DjO"/>
+                                    <outletCollection property="gestureRecognizers" destination="ka6-OE-PyS" appends="YES" id="44f-rX-QTd"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vno-Fe-Pay" secondAttribute="bottom" id="5Vt-3V-nYF"/>
+                            <constraint firstItem="vno-Fe-Pay" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V1T-da-Fwl"/>
+                            <constraint firstItem="vno-Fe-Pay" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hvv-ym-22e"/>
+                            <constraint firstItem="vno-Fe-Pay" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mG8-zF-CRS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="vno-Fe-Pay" id="J3S-yM-Wry"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTouchesRequired="3" id="ka6-OE-PyS">
+                    <connections>
+                        <action selector="tripleTouchWithSender:" destination="BYZ-38-t0r" id="T7i-o4-5Ia"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.00492610837438"/>
+        </scene>
+        <!--Person View Controller-->
+        <scene sceneID="sC1-cq-Aa7">
+            <objects>
+                <viewController storyboardIdentifier="PersonViewController" id="zyy-V5-fQ4" customClass="PersonViewController" customModule="Swag" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vKr-KU-tCR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matteo" translatesAutoresizingMaskIntoConstraints="NO" id="fm1-g3-Ebl">
+                                <rect key="frame" x="25" y="406" width="325" height="406"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="ky5-QV-WqY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qw-TW-LMa">
+                                <rect key="frame" x="16" y="69" width="343" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="jkO-R0-tgJ"/>
+                                </constraints>
+                                <string key="text">MATTEO
+RATTOTTI</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="42"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvg-Cm-oTq">
+                                <rect key="frame" x="16" y="183" width="343" height="223"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-Nk-bBI">
+                                        <rect key="frame" x="98.000000000000014" y="38.666666666666657" width="146.33333333333337" height="146"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5b5-Nk-bBI" firstAttribute="centerX" secondItem="Fvg-Cm-oTq" secondAttribute="centerX" id="L2U-fE-h9n"/>
+                                    <constraint firstItem="5b5-Nk-bBI" firstAttribute="centerY" secondItem="Fvg-Cm-oTq" secondAttribute="centerY" id="fWu-tU-yfk"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29019607843137257" green="0.71764705882352942" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e4B-ab-YgE" firstAttribute="trailing" secondItem="4Qw-TW-LMa" secondAttribute="trailing" constant="16" id="37f-gc-5CX"/>
+                            <constraint firstItem="4Qw-TW-LMa" firstAttribute="leading" secondItem="e4B-ab-YgE" secondAttribute="leading" constant="16" id="HUu-H6-29G"/>
+                            <constraint firstItem="fm1-g3-Ebl" firstAttribute="centerX" secondItem="e4B-ab-YgE" secondAttribute="centerX" id="Mnd-nr-c7v"/>
+                            <constraint firstItem="e4B-ab-YgE" firstAttribute="trailing" secondItem="Fvg-Cm-oTq" secondAttribute="trailing" constant="16" id="NkQ-Rb-IQ8"/>
+                            <constraint firstItem="fm1-g3-Ebl" firstAttribute="top" secondItem="Fvg-Cm-oTq" secondAttribute="bottom" id="VRN-Tx-Gbe"/>
+                            <constraint firstItem="5b5-Nk-bBI" firstAttribute="height" secondItem="vKr-KU-tCR" secondAttribute="height" multiplier="0.18" id="YJn-kI-z6Y"/>
+                            <constraint firstAttribute="bottom" secondItem="fm1-g3-Ebl" secondAttribute="bottom" id="YNA-ri-3jj" customClass="PercentLayoutConstraint" customModule="Swag" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginPercent">
+                                        <real key="value" value="-0.070000000000000007"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="Fvg-Cm-oTq" firstAttribute="leading" secondItem="e4B-ab-YgE" secondAttribute="leading" constant="16" id="g6a-te-Sd2"/>
+                            <constraint firstItem="4Qw-TW-LMa" firstAttribute="top" secondItem="vKr-KU-tCR" secondAttribute="top" constant="69" id="quT-nO-9Z5" customClass="PercentLayoutConstraint" customModule="Swag" customModuleProvider="target">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginPercent">
+                                        <real key="value" value="0.059999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="5b5-Nk-bBI" firstAttribute="width" secondItem="vKr-KU-tCR" secondAttribute="height" multiplier="0.18" id="t8k-SL-tta"/>
+                            <constraint firstItem="fm1-g3-Ebl" firstAttribute="height" secondItem="vKr-KU-tCR" secondAttribute="height" multiplier="0.5" id="ywY-z0-9CJ"/>
+                            <constraint firstItem="Fvg-Cm-oTq" firstAttribute="top" secondItem="4Qw-TW-LMa" secondAttribute="bottom" constant="-10" id="z9K-tL-MqE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e4B-ab-YgE"/>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="fm1-g3-Ebl" id="3Ov-4g-eQ9"/>
+                        <outlet property="nameLabel" destination="4Qw-TW-LMa" id="NdN-kY-ULj"/>
+                        <outlet property="qrCodeImageView" destination="5b5-Nk-bBI" id="8F5-7T-PXa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V43-EF-SZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877.60000000000002" y="132.26600985221674"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="matteo" width="325" height="425"/>
+    </resources>
+</document>

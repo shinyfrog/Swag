@@ -36,9 +36,11 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate
                 
                 vc.avatarImageView.image = UIImage.init(named: person["image"]!, in: nil, compatibleWith: nil)
                 vc.nameLabel.text = person["name"]!.uppercased()
-                vc.createQRCode(string: person["qrstring"]!, color: colorFromHEX(person["qrcolor"]!))
                 
-                vc.view.backgroundColor = colorFromHEX(person["bgcolor"]!)
+                let color = colorFromHEX(person["bgcolor"]!)
+                vc.createQRCode(string: person["qrstring"]!, color: darkerColorForColor(color))
+                
+                vc.view.backgroundColor = color
             }
         }
         
@@ -47,31 +49,45 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     
     // MARK: - Person Data
-
+    
     private func personsData() -> Array<[String:String]> {
-        let data = [["name":"Matteo Rattotti",
-                     "image":"matteo",
-                     "qrcolor":"25734C",
-                     "qrstring":"BEGIN:VCARD\nN:Rattotti;Matteo\nEMAIL:matteo.rattotti@shinyfrog.net\nEND:VCARD",
-                     "bgcolor":"4AB780"],
-                    ["name":"Danilo Bonardi",
-                     "image":"trix180",
-                     "qrcolor":"255D71",
-                     "qrstring":"BEGIN:VCARD\nN:Bonardi;Danilo\nEMAIL:danilo.bonardi@shinyfrog.net\nEND:VCARD",
-                     "bgcolor":"4DB0D3"],
-                    ["name":"Konstantin Erokhin",
-                     "image":"nerolapis",
-                     "qrcolor":"A05816",
-                     "qrstring":"BEGIN:VCARD\nN:Erokhin;Konstantin\nEMAIL:konstantin.erokhin@shinyfrog.net\nEND:VCARD",
-                     "bgcolor":"F2B21B"],
-                    ["name":"Nicola Armellini",
-                     "image":"ni",
-                     "qrcolor":"970E0F",
-                     "qrstring":"BEGIN:VCARD\nN:Armellini;Nicola\nEMAIL:nicola.armellini@shinyfrog.net\nEND:VCARD",
-                     "bgcolor":"D45455"]]
+        let data = [
+            ["name":"Matteo Rattotti",
+             "image":"matteo",
+             "qrstring":"BEGIN:VCARD\nN:Rattotti;Matteo\nEMAIL:matteo.rattotti@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"4AB780"],
+            ["name":"Danilo Bonardi",
+             "image":"trix180",
+             "qrstring":"BEGIN:VCARD\nN:Bonardi;Danilo\nEMAIL:danilo.bonardi@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"4DB0D3"],
+            ["name":"Konstantin Erokhin",
+             "image":"nerolapis",
+             "qrstring":"BEGIN:VCARD\nN:Erokhin;Konstantin\nEMAIL:konstantin.erokhin@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"F2B21B"],
+            ["name":"Nicola Armellini",
+             "image":"ni",
+             "qrstring":"BEGIN:VCARD\nN:Armellini;Nicola\nEMAIL:nicola.armellini@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"D45455"],
+            ["name":"Luca Ascani",
+             "image":"luca",
+             "qrstring":"BEGIN:VCARD\nN:Ascani;Luca\nEMAIL:ascani@gmail.com\nEND:VCARD",
+             "bgcolor":"785db3"],
+            ["name":"David Chartier",
+             "image":"david",
+             "qrstring":"BEGIN:VCARD\nN:Chartier;David\nEMAIL:david@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"0d5360"],
+            ["name":"Damien Kelly",
+             "image":"damien",
+             "qrstring":"BEGIN:VCARD\nN:Kelly;Damien\nEMAIL:damien.kelly@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"54aa21"],
+            ["name":"Zowie Huang",
+             "image":"zowie",
+             "qrstring":"BEGIN:VCARD\nN:Huang;Zowie\nEMAIL:zowie@shinyfrog.net\nEND:VCARD",
+             "bgcolor":"ee7720"],
+            ]
         
         return data;
     }
@@ -145,6 +161,17 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate
         return UIColor.black
     }
     
+    private func darkerColorForColor(_ color: UIColor) -> UIColor {
+        
+        var r:CGFloat = 0, g:CGFloat = 0, b:CGFloat = 0, a:CGFloat = 0
+        
+        if color.getRed(&r, green: &g, blue: &b, alpha: &a){
+            return UIColor(red: max(r - 0.3, 0.0), green: max(g - 0.3, 0.0), blue: max(b - 0.3, 0.0), alpha: a)
+        }
+        
+        return UIColor()
+    }
+    
     // MARK: - Save / Load status
     
     func savePageToPreferences(_ page: Int) {
@@ -197,10 +224,8 @@ class ScrollViewController: UIViewController, UIScrollViewDelegate
             funOn = false
         }
         else {
-            var oppai = ["matteo-oppai", "trix180-oppai", "nerolapis-oppai", "ni-oppai"]
-            
             for (index, vc) in personViewControllers!.enumerated() {
-                vc.avatarImageView.image = UIImage.init(named: oppai[index], in: nil, compatibleWith: nil)
+                vc.avatarImageView.image = UIImage.init(named: personsData()[index]["image"]! + "_oppai" , in: nil, compatibleWith: nil)
             }
             funOn = true
         }
